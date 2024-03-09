@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('lastname');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();//if a user signs up using google then we don't need the password
+            $table->string('google_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

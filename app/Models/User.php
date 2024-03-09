@@ -47,4 +47,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    //relationships with other models
+    public function AlumniProfiles() {
+        return $this->hasOne(AlumniProfile::class);
+    }
+
 }
