@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    {{-- @vite('resources/css/app.css') --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Welcome to Alumnix</title>
 </head>
@@ -94,7 +95,7 @@
                           </svg> --}}
 
                         @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                <div>
                     @auth
                         <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     @else
@@ -118,7 +119,7 @@
                         <h1>Where Success Finds its Roots</h1>
                         <p>Forge Connections, Unlock Opportunities: Your Alumni Network!</p>
                       </div>
-                      <button class="get-started">
+                      <button class="get-started border-2 border-rose-500">
                         GET STARTED
                       </button>
                       {{-- <div class="tagline-image">
