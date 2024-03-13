@@ -3,14 +3,14 @@
         @csrf
 
         <!-- Name -->
-        <div>
-            <x-input-label for="firstname" :value="__('firstname')" />
+        <div class="mt-4">
+            <x-input-label for="firstname" :value="__('Firstname')" />
             <x-text-input id="firstname" class="block mt-1 w-full" type="firstname" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
             <x-input-error :messages="$errors->get('firstname')" class="mt-2" />
         </div>
 
-        <div>
-            <x-input-label for="lastname" :value="__('lastname')" />
+        <div class="mt-4">
+            <x-input-label for="lastname" :value="__('Lastname')" />
             <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
             <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
         </div>
@@ -43,7 +43,18 @@
                             name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div> <br>
+        </div>
+        <div class="mt-4">
+            <x-select name="role" id="role" label="Role">
+                <x-option value="1" label="Alumni" />
+                <x-option value="2" label="Employer" />
+
+            </x-select>
+        </div>
+
+        <br><br>
+
+
         <div class="flex items-center">
             <hr class="w-full border-gray-400 border-1">
             <span class="px-3 text-sm text-gray-500">or</span>
@@ -55,7 +66,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" width="30" height="30" class="mr-2">
                 <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/>
             </svg>
-            <a href="{{ route('signup.google') }}" >
+            <a href="{{ route('login.google') }}" >
                 {{ __('Sign up with Google') }}
             </a>
         </div>
