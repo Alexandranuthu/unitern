@@ -26,7 +26,7 @@ class AlumniProfileController extends Controller
     public function create()
     {
         $users= User::all();
-        return view('AlumniProfile.create', compact('user'));
+        return view('AlumniProfile.create', compact('users'));
     }
 
     /**

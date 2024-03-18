@@ -47,4 +47,9 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+    public function chooseRole()
+{
+    return view('chooserole');
+}
+
 }

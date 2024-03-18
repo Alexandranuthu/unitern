@@ -16,12 +16,12 @@ class RolesSeeder extends Seeder
         //creating roles for my application
         //admin role
         //admin is a slug and can be used to check if user has this role or not
-        Role::create(['name' => 'Admin']);
+        // Role::create(['name' => 'Admin']);
 
         //alumni role
-        Role::create(['name' => "Alumni"]);
+        // Role::create(['name' => 'Alumni']);
 
         //employer role
-        Role::create(['name' => 'Employer']);
+        // Role::create(['name' => 'Employer']);
     }
 }

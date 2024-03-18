@@ -21,6 +21,10 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/chooserole', [App\Http\Controllers\Auth\RegisteredUserController::class, 'chooseRole'])->name('chooserole');
+Route::get('/AlumniProfile/register', [AlumniProfileController::class, 'create'])->name('alumniprofile.create');
+
+// EMAIL VERIFICATION
 Route::get('/auth/google/signup', [GoogleController::class, 'redirectToGoogle'])->name('signup.google');
 Route::get('/auth/google/call-back', [GoogleController::class, 'handleGoogleCallback']);
 
@@ -37,15 +41,18 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
 
     return redirect('/home');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
+
+// PROFILE ROUTES
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::resource('/alumni', AlumniProfileController::class);

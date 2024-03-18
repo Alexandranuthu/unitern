@@ -1,0 +1,11 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 100px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+h1{
+    text-align: center;
+}

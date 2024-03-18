@@ -99,10 +99,10 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
                     @else
-                        <button><a href="{{ route('login') }}" >SIGN IN</a></button>
+                        <button class="signin"><a href="{{ route('login') }}" class="signin">SIGN IN</a></button>
 
                         @if (Route::has('register'))
-                            <button><a href="{{ route('register') }}">JOIN</a></button>
+                            <button class="join"><a href="{{ route('register') }}" class="join">JOIN</a></button>
                         @endif
                     @endauth
                 </div>
@@ -114,22 +114,26 @@
         </header>
         <div class="container">
             <main>
-                <section class="tagline">
+                <section class="section tagline">
                       <div class="text-content">
                         <h1>Where Success Finds its Roots</h1>
                         <p>Forge Connections, Unlock Opportunities: Your Alumni Network!</p>
                       </div>
-                      <button class="get-started border-2 border-rose-500">
-                        GET STARTED
-                      </button>
-                      {{-- <div class="tagline-image">
-                        <img src="images/Pencil_Rocket.png" alt="pencilrocket">
-                      </div> --}}
+                      <form method="GET" action="{{ route('chooserole') }}">
+                        <button type="submit" class="get-started border-2 border-rose-500">
+                            GET STARTED
+                        </button>
+                    </form>
+
+                      <div class="email">
+                        <input type="text" placeholder="Enter your email">
+                        <button class="btn btn-primary">WATCH DEMO</button>
+                      </div>
                 </section>
 
-                <section class="section-2">
+                <section class="section ">
                   <div class="features">
-                    <img src="feature app-image" alt="helo rocket">
+                    {{-- <img src="feature app-image" alt="helo rocket"> --}}
                     <div class="app-info">
 
                     </div>
@@ -137,5 +141,6 @@
                 </section>
             </main>
         </div>
+        <script src="{{ asset('js/script.js') }}"></script>
     </body>
 </html>
